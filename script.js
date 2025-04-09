@@ -1,14 +1,20 @@
-// Functia care face conversia din celsius în fahrenheit
-function celsiusToFahrenheit(celsius) {
-    return (celsius * 9/5) + 32;
+function isPrime(n) {
+    // daca numarul e 1 sau mai mic nu e prim
+    if (n <= 1) return false
+    // verificam de la 2 pana la n-1
+    for (let i = 2; i < n; i++) {
+        // daca se imparte exact la ceva nu e prim
+        if (n % i == 0) return false
+    }
+    // daca nu am gasit divizori e prim
+    return true
 }
 
-// Functia care ia valoarea introdusa si arata rezultatul
-function converteste() {
-    // Luam valoarea din caseta de input
-    let celsius = document.getElementById("celsius").value;
-    // Calculam Fahrenheit
-    let fahrenheit = celsiusToFahrenheit(celsius);
-    // Afisam rezultatul
-    document.getElementById("rezultat").innerHTML = celsius + "°C = " + fahrenheit + "°F";
+function verifica() {
+    // luam numarul din caseta
+    let numar = document.getElementById("numar").value
+    // verificam daca e prim
+    let rezultat = isPrime(numar)
+    // punem rezultatul pe pagina
+    document.getElementById("rezultat").innerHTML = numar + " e prim: " + rezultat
 }
